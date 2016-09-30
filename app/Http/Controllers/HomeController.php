@@ -26,16 +26,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         //check if user is a mentor
         $mentor_id = Auth::user()->mentor;
-        if($mentor_id == true){
 
-            return redirect('/mentor/home');
+        //moet nog worden aangemaakt!!!!!!!
+        $accepted = Auth::user()->accepted;
 
-//            return view('/mentor/home', ['user' => $user]);
+        if($mentor_id == true && $accepted == true){
+
+            return redirect('/mentor/register');
+
         }
-        else {
+//        elseif($mentor_id == 1 && $accepted == 1)
+
+        elseif($mentor_id == 1)
+        {
+            return redirect('/mentor/home');
+        }
+        else
+        {
             return view('/home');
         }
     }

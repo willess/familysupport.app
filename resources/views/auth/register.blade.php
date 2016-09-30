@@ -1,19 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     <div class="row">
-
         <div class="col-md-8 col-md-offset-2">
-            <button type="button" class="btn btn-default btn-lg"><a href="{{ url('/register') }}">Registreren als Familie/persoon</a></button>
-            <button type="button" class="btn btn-default btn-lg active"><a href="{{ url('/register/mentor') }}">Registeren als Begeleider</a></button>
-            <br />
-            <br />
             <div class="panel panel-default">
-                <div class="panel-heading">Registreren als Familie</div>
+                <div class="panel-heading">Registreren</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Ik wil me aanmelden als:</label>
+                            <div class="col-md-6">
+
+                            <select class="form-control" name="mentor">
+                                <option value="0">Gebruiker / Gezin</option>
+                                <option value="1">Hulpverlener</option>
+                            </select>
+                            </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Voornaam</label>
@@ -167,6 +172,4 @@
             </div>
         </div>
     </div>
-
-</div>
 @endsection
