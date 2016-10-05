@@ -8,7 +8,7 @@
                 Voeg een nieuwe familie toe!
             </div>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" method="post" action="{{ url('mentor/family/create') }}">
+                <form class="form-horizontal" role="form" method="post" action="{{ url('mentor/families') }}">
                     {{ csrf_field() }}
 
 
@@ -34,9 +34,19 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="name" class="col-md-4 control-label">Aantal ouders</label>
+                        <div class="col-md-6">
+                            <select class="form-control" name="parents" required autofocus>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="name" class="col-md-4 control-label">Aantal kinderen</label>
                         <div class="col-md-6">
-                            <select class="form-control">
+                            <select class="form-control" name="children" required autofocus>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -54,9 +64,17 @@
                     <div class="form-group">
                         <label for="name" class="col-md-4 control-label">Over de familie</label>
                         <div class="col-md-6">
-                            <textarea class="form-control" id="name" name="about">
+                            <textarea class="form-control" id="name" name="about" required autofocus>
 
                             </textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="submit" class="btn btn-primary">
+                                Maak aan
+                            </button>
                         </div>
                     </div>
 

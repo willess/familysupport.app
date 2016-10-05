@@ -15,22 +15,25 @@
 
         <div class="row">
             <div class="col-md-4 col-xs-6">
-                <div class="panel panel-default dash">
-                    <div class="panel-body">
-                        <h3>Beheer Families</h3>
+                <a href="{{ url('/mentor/families') }}">
+                    <div class="panel panel-default dash">
+                        <div class="panel-body">
+                            <h3>Beheer Families</h3>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
+
             <div class="col-md-4 col-xs-6">
-                <a href="{{ url('/mentor/family/create') }}">
+                <a href="{{ url('/mentor/families/create') }}">
                     <div class="panel panel-default dash">
                         <div class="panel-body">
                             <h3>Nieuwe familie</h3>
                         </div>
                     </div>
                 </a>
-
             </div>
+
             <div class="col-md-4 col-xs-6">
                 <div class="panel panel-default dash">
                     <div class="panel-body">

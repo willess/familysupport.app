@@ -69,8 +69,8 @@ class MentorController extends Controller
         }
     }
 
-    public function mentor_info(Request $request){
-
+    public function mentor_info(Request $request)
+    {
         $id = Auth::user()->id;
 
         $mentor_info = new Profile([

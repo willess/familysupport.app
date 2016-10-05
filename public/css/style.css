@@ -6,7 +6,7 @@ body {
     /*background-color: #ebebeb;*/
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     /*background-color: #EFEFEF;*/
-    background-image: url("http://cdn2.hubspot.net/hubfs/508496/Blog_Photos/4_Open_Innovation_Models_for_Startups_and_Corporates_to_Work_Together.jpg");
+    /*background-image: url("http://cdn2.hubspot.net/hubfs/508496/Blog_Photos/4_Open_Innovation_Models_for_Startups_and_Corporates_to_Work_Together.jpg");*/
     background-size: cover;
     color: black;
 }
@@ -15,5 +15,9 @@ body {
     height: 200px;
     /*background-color: darkred;*/
     /*border: solid 2px black ;*/
+}
+
+.test {
+    border: 1px solid black;
 }
 

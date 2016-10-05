@@ -32,4 +32,12 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Profile');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function families() {
+        return $this->belongsToMany('App\Family');
+    }
+
 }
