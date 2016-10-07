@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Family extends Model
 {
     protected $fillable = [
-        'name',
-        'country',
-        'parents',
-        'children',
-        'about',
-        'supported'
+        'title',
+        'body'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
 }

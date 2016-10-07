@@ -9,7 +9,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h1>{{ $family->name }}</h1>
-                    <p>Toegevoegd: {{ $family->created_at }}</p>
+                    <p class="created">Toegevoegd: {{ $family->created_at }}</p>
                     <ul>
                         <li>Aantal ouders: {{ $family->parents }}</li>
                         <li>Aantal kinderen: {{ $family->children }}</li>
@@ -17,7 +17,7 @@
                     <p>{{ $family->about }}</p>
                     <a href="{{ url('/mentor/families/'.$family->id) }}">
                         <button type="button" class="btn btn-primary">
-                            Ga naar profiel
+                            Profiel updaten
                         </button>
                     </a>
                 </div>

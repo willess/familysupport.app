@@ -26,9 +26,12 @@ Route::post('/mentor/register', 'MentorController@mentor_info');
 
 Route::resource('mentor/families', 'MentorFamilyController');
 
-//Route::get('/mentor/family/create', 'MentorFamilyController@create');
-//Route::post('/mentor/family/create', 'MentorFamilyController@createFamily');
-//
-//Route::get('/mentor/family/myFamilies', 'MentorFamilyController@myFamilies');
+Route::get('mentor/families/post/{id}', 'MentorFamilyPostController@index');
+Route::post('mentor/families/post/{id}', 'MentorFamilyPostController@store');
+Route::get('mentor/families/post/{id}/edit', 'MentorFamilyPostController@edit');
+Route::post('mentor/families/post/{id}/update', 'MentorFamilyPostController@update');
+Route::get('mentor/families/post/{id}/delete', 'MentorFamilyPostController@delete');
+
+
 
 

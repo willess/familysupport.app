@@ -43,7 +43,6 @@ class CreateFamilyTable extends Migration
                 $table->timestamps();
             });
         }
-
     }
 
     /**
