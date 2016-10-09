@@ -11,7 +11,7 @@
             </div>
             <div class="panel-body">
 
-                {!! Form::open(['url' => 'mentor/families', 'class' => 'form-horizontal']) !!}
+                {!! Form::open(['url' => 'mentor/families/'.$family->id, 'method' => 'put', 'class' => 'form-horizontal']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Familienaam', ['class' => 'col-md-4 control-label']) !!}
                     <div class="col-md-6">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        {!! Form::submit('Maak aan', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit('Wijzig', ['class' => 'btn btn-primary']) !!}
                     </div>
                 </div>
 

@@ -12,7 +12,16 @@ use Illuminate\Support\Facades\Auth;
 
 class MentorFamilyController extends Controller
 {
-//    Testing the resource method!!
+    public function index()
+    {
+        $user = User::find(Auth::User()->id);
+
+        $myFamilies = $user
+            ->families()
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return view('mentor/family/myFamilies', compact('myFamilies'));
+    }
 
     public function create()
     {
@@ -35,18 +44,6 @@ class MentorFamilyController extends Controller
         $user->families()->attach($family->id);
 
         return redirect('/mentor/families');
-    }
-
-    public function index()
-    {
-        $user = User::find(Auth::User()->id);
-//        dd($user->email);
-
-        $myFamilies = $user
-            ->families()
-            ->orderBy('created_at', 'desc')
-            ->get();
-        return view('mentor/family/myFamilies', compact('myFamilies'));
     }
 
     public function show ($id)
@@ -89,9 +86,27 @@ class MentorFamilyController extends Controller
         return view('mentor/family/edit', compact('family'));
     }
 
-    public function update ()
+    public function update (Request $request, $id)
     {
-        dd('test');
+        $family = Family::findorfail($id);
+        $family->name = $request['name'];
+        $family->country = $request['country'];
+        $family->city = $request['city'];
+        $family->parents = $request['parents'];
+        $family->children = $request['children'];
+        $family->about = $request['about'];
+        $family->save();
+
+        return redirect('/mentor/families/'.$family->id);
+    }
+
+    public function destroy($id)
+    {
+        $family = Family::findorfail($id);
+
+        $family->delete();
+
+        return redirect('mentor/families');
     }
 
 }

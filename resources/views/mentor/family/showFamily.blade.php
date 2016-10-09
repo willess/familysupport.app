@@ -14,9 +14,14 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="{{ url('/mentor/families/'.$family->id).'/edit' }}">
+                    <a href="{{ url('/mentor/families/'.$family->id.'/edit') }}">
                         <button type="button" class="btn btn-primary">
                             Wijzig
+                        </button>
+                    </a>
+                    <a href="{{ url('mentor/families/'.$family->id.'/delete') }}">
+                        <button class="btn btn-danger">
+                            Verwijder
                         </button>
                     </a>
                     <h1>{{ $family['name'] }}</h1>

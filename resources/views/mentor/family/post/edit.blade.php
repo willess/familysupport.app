@@ -11,7 +11,7 @@
                 <div class="panel-body">
 
 
-                    {!! Form::open(['url' => 'mentor/families/post/'.$post->id.'/update', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['url' => 'mentor/families/post/'.$post->id.'/update', 'method' => 'put', 'class' => 'form-horizontal']) !!}
                     <div class="form-group">
                         {!! Form::label('title', 'Titel', ['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-6">
