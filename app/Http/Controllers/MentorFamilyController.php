@@ -22,7 +22,7 @@ class MentorFamilyController extends Controller
             ->get();
         return view('mentor/family/myFamilies', compact('myFamilies'));
     }
-
+    
     public function create()
     {
         return view('mentor/family/create');

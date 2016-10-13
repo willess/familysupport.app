@@ -19,6 +19,11 @@
                         <button type="button" class="btn btn-primary">
                             Profiel updaten
                         </button>
+                    </a >
+                    <a href="{{ url('/family/'.$family->id) }}">
+                        <button type="button" class="btn btn-primary">
+                            Bekijk profiel
+                        </button>
                     </a>
                 </div>
             </div>

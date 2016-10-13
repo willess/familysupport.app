@@ -41,7 +41,6 @@ class MentorFamilyPostController extends Controller
         $post['body'] = $request['body'];
         $post->save();
 
-        return redirect('/mentor/families/'.$post->family_id);
     }
 
     public function delete($id)

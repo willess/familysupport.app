@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Family;
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,7 +47,24 @@ class HomeController extends Controller
         }
         else
         {
-            return view('/home');
+            return redirect('user');
+//
+//            $families = Family::all()
+//                ->where('supported', 0);
+//
+//            return view('/home', compact('families'));
         }
+    }
+
+    public function showFamily($id)
+    {
+        $family = Family::findorfail($id);
+
+            $posts = $family
+                ->posts()
+                ->get();
+
+            return view('family', compact('family', 'posts'));
+
     }
 }
