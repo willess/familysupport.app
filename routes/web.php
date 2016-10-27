@@ -44,4 +44,10 @@ Route::get('user/support/{id}', 'UserController@store');
 Route::get('user/myfamilies', 'UserController@myFamilies');
 
 
+Route::get('demand/create/{id}', 'DemandController@create');
+Route::post('demand/store/{id}', 'DemandController@store');
+Route::get('demand/accept/{id}', 'DemandController@accept');
 
+Route::post('search', 'UserController@search');
+
+//Route::resource('demand', 'DemandController');

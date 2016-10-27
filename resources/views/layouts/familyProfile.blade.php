@@ -4,6 +4,33 @@
 
     @yield('familyprofile')
 
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1>Aanvragen</h1>
+                            </div>
+                            @foreach($demands as $demand)
+
+                            @if($demand->accepted)
+                            <h2 class="bg-success">{{ $demand->text }}</h2>
+                        @else
+                            <h2 class="bg-danger">{{ $demand->text }}</h2>
+                        <a href="{{ url('demand/accept/'.$demand->id) }}">
+                            @if(Auth::user()->mentor == false)
+                                <button type="button" class="btn btn-success">
+                                    Accepteer
+                                </button>
+                            @endif
+                        </a>
+                            @endif
+                        @endforeach
+
+                        </div>
+                    </div>
+                </div>
+
+
 
     <div class="row">
         <div class="col-md-10 col-md-offset-1">

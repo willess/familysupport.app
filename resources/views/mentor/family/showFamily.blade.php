@@ -10,8 +10,34 @@
         </div>
     </div>
 
+
+    @foreach($demands as $demand)
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                @if($demand->accepted)
+                    <h2 class="bg-success">{{ $demand->text }}</h2>
+                    @else
+                    <h2 class="bg-danger">{{ $demand->text }}</h2>
+                @endif
+            </div>
+        </div>
+
+        @endforeach
+
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+
+            <a href="{{ url('/demand/create/'.$family->id) }}">
+                <button type="button" class="btn btn-success">
+                    Aanvraag doen
+                </button>
+            </a>
+            <a href="{{ url('/demand/'.$family->id) }}">
+                <button type="button" class="btn btn-primary">
+                    Bekijk aanvragen
+                </button>
+            </a>
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a href="{{ url('/mentor/families/'.$family->id.'/edit') }}">
@@ -59,6 +85,7 @@
     </div>
 
     @foreach($posts as $post)
+
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
@@ -69,6 +96,10 @@
                     <a href="{{ url('mentor/families/post/'.$post->id).'/delete' }}">
                         <button class="btn btn-danger">Verwijder</button>
                     </a>
+                    <label class="switch">
+                        <input type="checkbox" @if($post->show == true) checked @endif>
+                        <div class="slider round"></div>
+                    </label>
                     <h2>{{ $post['title'] }}</h2>
                     <p class="created">Toegevoegd: {{ $post['created_at'] }}</p>
                 </div>

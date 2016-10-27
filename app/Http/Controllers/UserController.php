@@ -45,4 +45,18 @@ class UserController extends Controller
 
         return view('user/myfamilies', compact('families'));
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function search(Request $request)
+    {
+
+        $query = $request->input('search');
+        $families = Family::all()
+            ->where('name','Like', '%' . $query . '%');
+
+        return view('user/families', compact('families'));
+    }
 }

@@ -64,7 +64,12 @@ class HomeController extends Controller
                 ->posts()
                 ->get();
 
-            return view('family', compact('family', 'posts'));
+        $demands = $family
+            ->demands()
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+            return view('family', compact('family', 'posts', 'demands'));
 
     }
 }

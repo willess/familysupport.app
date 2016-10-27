@@ -22,4 +22,8 @@ class Family extends Model
     {
         return $this->belongsToMany('App\User');
     }
+
+    public function demands() {
+        return $this->hasMany('App\Demand');
+    }
 }

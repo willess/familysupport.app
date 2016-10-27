@@ -22,7 +22,7 @@ class MentorFamilyController extends Controller
             ->get();
         return view('mentor/family/myFamilies', compact('myFamilies'));
     }
-    
+
     public function create()
     {
         return view('mentor/family/create');
@@ -64,7 +64,12 @@ class MentorFamilyController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
 
-            return view('mentor/family/showFamily', compact('family', 'posts'));
+            $demands = $family
+                ->demands()
+                ->orderBy('created_at', 'desc')
+                ->get();
+
+            return view('mentor/family/showFamily', compact('family', 'posts', 'demands'));
         }
         else
         {

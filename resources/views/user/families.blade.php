@@ -9,6 +9,25 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-10 col-lg-offset-1">
+            {!! Form::open(['url' => 'search', 'class' => 'form-horizontal']) !!}
+            <div class="form-group">
+                <div class="col-md-6">
+                    {!! Form::text('search', null,
+                                           array('required',
+                                                'class'=>'form-control',
+                                                'placeholder'=>'Zoek naar families')) !!}
+                </div>
+                {!! Form::submit('Zoeken',
+                           array('class'=>'btn btn-default')) !!}
+            </div>
+
+
+            {!! Form::close() !!}
+        </div>
+    </div>
+
     @foreach($families as $family)
 
         <div class="row">
