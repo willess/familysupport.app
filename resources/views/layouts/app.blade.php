@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Scripts -->
     <script>
@@ -82,9 +83,8 @@
         @yield('content')
 
     </div>
-
-
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

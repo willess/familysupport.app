@@ -50,4 +50,6 @@ Route::get('demand/accept/{id}', 'DemandController@accept');
 
 Route::post('search', 'UserController@search');
 
+Route::post('mentor/families/post/switch/{id}', 'MentorFamilyPostController@onOff');
+
 //Route::resource('demand', 'DemandController');

@@ -52,4 +52,22 @@ class MentorFamilyPostController extends Controller
 
         return redirect('/mentor/families/'.$family);
     }
+
+    public function onOff($id)
+    {
+        $post = Post::findorfail($id);
+//        dd($post);
+        if($post->show == true)
+        {
+            $post->show = false;
+        }
+        elseif($post->show == false)
+        {
+            $post->show = true;
+        }
+
+        $post->save();
+
+        return redirect('mentor/families/'.$post->family_id);
+    }
 }

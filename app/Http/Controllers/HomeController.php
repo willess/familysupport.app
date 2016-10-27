@@ -62,6 +62,7 @@ class HomeController extends Controller
 
             $posts = $family
                 ->posts()
+                ->where('show', true)
                 ->get();
 
         $demands = $family
