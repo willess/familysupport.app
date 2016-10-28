@@ -39,6 +39,6 @@ class DemandController extends Controller
 //        dd($demand);
         $demand->save();
 //        dd($demand);
-        return redirect('mentor/families/'.$demand->family_id);
+        return redirect('/family/'.$demand->family_id);
     }
 }

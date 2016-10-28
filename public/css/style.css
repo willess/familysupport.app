@@ -28,9 +28,6 @@ body {
 .btn:hover {
     background-color: white;
 }
-.active:hover {
-    background-color: blue;
-}
 
 .onOff:hover {
     /*border-radius: ;*/

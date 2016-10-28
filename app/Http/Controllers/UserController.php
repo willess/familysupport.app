@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -54,9 +55,23 @@ class UserController extends Controller
     {
 
         $query = $request->input('search');
-        $families = Family::all()
-            ->where('name','Like', '%' . $query . '%');
+        $allFamilies = DB::table('families')
+//            ->where([
+//                ['name', 'LIKE', '%' . $query . '%'],
+//                ['country', 'LIKE', '%' . $query . '%']
+//            ])
+            ->orwhere('name', 'LIKE', '%' . $query . '%')
+            ->orwhere('country', 'LIKE', '%' . $query . '%')
+            ->orwhere('about', 'LIKE', '%' . $query . '%')
+            ->where('supported', 0)
+            ->get();
 
+        $families = $allFamilies->where('supported', 0);
         return view('user/families', compact('families'));
+    }
+
+    public function filter(Request $request)
+    {
+
     }
 }
