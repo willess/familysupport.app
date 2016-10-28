@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Accept;
 use App\Family;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,9 +13,25 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        return view('user/home');
+        if(Auth::user()->accept)
+        {
+//            return Auth::user()->accept;
+            return view('user/home');
+        }
+        else
+        {
+            $accept = new Accept([
+                'accepts' => 0
+            ]);
+            Auth::user()->accept()->save($accept);
+            return view('user/home');
+        }
+
     }
 
     public function allFamilies()
@@ -56,10 +73,6 @@ class UserController extends Controller
 
         $query = $request->input('search');
         $allFamilies = DB::table('families')
-//            ->where([
-//                ['name', 'LIKE', '%' . $query . '%'],
-//                ['country', 'LIKE', '%' . $query . '%']
-//            ])
             ->orwhere('name', 'LIKE', '%' . $query . '%')
             ->orwhere('country', 'LIKE', '%' . $query . '%')
             ->orwhere('about', 'LIKE', '%' . $query . '%')
@@ -72,6 +85,30 @@ class UserController extends Controller
 
     public function filter(Request $request)
     {
+        $children = $request['children'];
+        $parents = $request['parents'];
+        if($parents == ""){
+            $allFamilies = DB::table('families')
+                ->where('children', $children)
+                ->get();
+        }
+        elseif($children == "")
+        {
+            $allFamilies = DB::table('families')
+                ->where('parents', $parents)
+                ->get();
+        }
+        else
+        {
+            $allFamilies = DB::table('families')
+                ->where('children', $children)
+                ->where('parents', $parents)
+                ->get();
+        }
+
+        $families = $allFamilies->where('supported', 0);
+
+        return view('user/families', compact('families'));
 
     }
 }

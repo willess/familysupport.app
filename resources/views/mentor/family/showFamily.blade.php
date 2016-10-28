@@ -101,8 +101,8 @@
                     {{--<input type="checkbox" @if($post->show == true) checked @endif>--}}
                     {{--<div class="slider round"></div>--}}
                     <div class="btn-group btn-toggle onOff">
-                        <button type="submit" class="btn btn-lg btn-default @if($post->show == true)btn-primary active @endif">ON</button>
-                        <button type="submit" class="btn btn-lg btn-default @if($post->show == false)btn-primary active @elseif(1 == 1) @endif">OFF</button>
+                        <button type="submit" class="btn switchButton btn-lg btn-default @if($post->show == true)btn-primary active @endif">ON</button>
+                        <button type="submit" class="btn switchButton btn-lg btn-default @if($post->show == false)btn-primary active @elseif(1 == 1) @endif">OFF</button>
                     </div>
 
                     {{--{!! Form::submit('On', ['class' => 'test']) !!}--}}

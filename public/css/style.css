@@ -25,14 +25,18 @@ body {
     font-size: 11px;
 }
 
-.btn:hover {
-    background-color: white;
-}
+/*.btn:hover {*/
+    /*background-color: black;*/
+/*}*/
 
 .onOff:hover {
     /*border-radius: ;*/
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    opacity: 0.8;
+
 }
 
-
+.switchButton:hover {
+    background-color: white;
+}
 

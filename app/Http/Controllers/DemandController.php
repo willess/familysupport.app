@@ -7,6 +7,7 @@ use App\Family;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class DemandController extends Controller
 {
@@ -34,10 +35,21 @@ class DemandController extends Controller
 
     public function accept($id)
     {
+        $accepts = Auth::user()->accept->accepts;
+        $accepts +=1;
+
+        $accept = Auth::user()->accept;
+        $accept->accepts = $accepts;
+        $accept->save();
+
         $demand = Demand::findorfail($id);
         $demand->accepted = true;
 //        dd($demand);
         $demand->save();
+
+
+
+
 //        dd($demand);
         return redirect('/family/'.$demand->family_id);
     }

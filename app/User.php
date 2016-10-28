@@ -27,20 +27,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function SearchByKeyword($query, $keyword)
-    {
-        if ($keyword!='') {
-            $query->where(function ($query) use ($keyword) {
-                $query->where("name", "LIKE","%$keyword%");
-            });
-        }
-        return $query;
-    }
-
-
     public function profile()
     {
         return $this->hasOne('App\Profile');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function accept()
+    {
+        return $this->hasOne('App\Accept');
     }
 
     /**

@@ -49,6 +49,7 @@ Route::post('demand/store/{id}', 'DemandController@store');
 Route::get('demand/accept/{id}', 'DemandController@accept');
 
 Route::post('search', 'UserController@search');
+Route::post('filter', 'UserController@filter');
 
 Route::post('mentor/families/post/switch/{id}', 'MentorFamilyPostController@onOff');
 
