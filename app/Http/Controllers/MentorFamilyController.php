@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Auth;
 
 class MentorFamilyController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('mentor');
+    }
+
     public function index()
     {
         $user = User::find(Auth::User()->id);

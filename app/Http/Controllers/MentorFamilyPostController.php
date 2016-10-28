@@ -10,6 +10,13 @@ use App\Http\Requests;
 
 class MentorFamilyPostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('mentor');
+    }
+
     public function index ($id)
     {
         return view('mentor/family/post/index', compact('id'));

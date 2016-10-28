@@ -12,6 +12,13 @@ use App\Http\Requests;
 class MentorController extends Controller
 {
 
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('mentor');
+    }
+
     public function register()
     {
         $mentor_id = Auth::user()->mentor;
